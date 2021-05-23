@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/weather.png">
+        <link rel="stylesheet" href='/css/style.css'>
+        <title>Weather</title>
+        
+    </head>
+    <body>
+        <div class="main-content">
+            {{>header}}
+            <p>Provided Location:{{givenlocation}}</p>
+            <p>Weather Showing for Location:{{location}}</p>
+            <p class="weatherreport">{{forecast}}<p>
+        </div>
+        {{>footer}}
+    </body>
+</html>
