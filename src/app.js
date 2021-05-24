@@ -10,6 +10,8 @@ const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, '../templates/partials');
 const app = express();
 
+const port = process.env.PORT || 3000
+
 // setup of the handlebar engine and views path
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
@@ -67,12 +69,6 @@ app.get('/weather', (req,res)=>{
     });
    
 })
-// app.get('/weather', (req,res)=>{
-//     res.send({
-//         location : 'Ilkal',
-//         forecase : 'Patchy rain possible. The current temparature is 31 degress. But it feels like 32 degress out.'
-//     })
-// }) 
 
 app.get('/help/*', (req,res)=>{ 
     res.render('404', {
@@ -90,17 +86,7 @@ app.get('*', (req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log("Server is up and running")
+app.listen(port, ()=>{
+    console.log("Server is up and running on port " + port);
 });
 
-
-
-
-// res.render('weather', {
-//     title : 'Current weather',
-//     name : 'Mahantesh',
-//     givenlocation : req.query.address,
-//     location,
-//     forecast : weatherType + ". There is "+temperature+" degress out there. But it feels like "+ feelslike+ " degress out there"
-// })
